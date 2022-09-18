@@ -1,0 +1,8 @@
+/mnt/c/Users/jcge9/Desktop/asignaturas_VIU/SO_Linux/videos/video8:
+colores.txt
+cuentas.txt
+error.txt
+miarchivo.txt
+output.txt
+v8_apuntes.md
+v8_comandos.bash
