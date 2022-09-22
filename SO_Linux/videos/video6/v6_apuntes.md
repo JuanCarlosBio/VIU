@@ -47,7 +47,7 @@ echo "> Con la letra -i obtenemos el número del inodo de cada archivo, además 
 ls -li 
 
 # Podemos ver el inodo también con el comando stat
-echo "> Usamos para ver el stat para ver información adicional del archivo."
+echo "> Usamos stat para ver información adicional del archivo."
 stat original.txt
 
 echo "============================================================================================="

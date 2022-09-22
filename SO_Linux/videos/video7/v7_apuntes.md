@@ -10,7 +10,9 @@ El intento de comprimir archivos ha sido un poco fracaso la verdad.
 
 ---
 
-+ + + + + -> tar -> c(+,+,+,+,+) -> gzip -> c(+)
+Si no le pongo las comillas se vuelve un poco crazy
+
+"+ + + + + + -> tar -> c(+,+,+,+,+) -> gzip -> c(+)"
 
 ---
 
