@@ -3,10 +3,10 @@
 # Obtener los datos de .fasta, mediante wget 
 
 # Tirosina
-nano fastadata/tyrosine.txt
+# nano fastadata/tyrosine.txt
 
 # Lactosa
-nano fastadata/lactase.txt
+# nano fastadata/lactase.txt
 
 # Mioglobina
-nano fastadata/myoglobin.txt
+# nano fastadata/myoglobin.txt
