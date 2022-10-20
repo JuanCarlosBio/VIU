@@ -26,11 +26,65 @@ Los datos con los cuales va a trabajar hacen referencia a una serie de regiones 
 
 ###### Seguidamente, responda a cada una de las preguntas que se le indican, adicionando siempre una captura de pantalla con los comandos empleados y la respuesta obtenida por la salida estándar.
 
-* ¿Cuántas líneas presenta cada uno de los archivos descargados? (0,5 pts)
+***los comandos se encuentran en el script: code/actividad1.sh***
 
-* ¿Cuántas columnas presenta cada uno de los archivos descargados? (1 pts)
+* **¿Cuántas líneas presenta cada uno de los archivos descargados? (0,5 pts)**
 
-* •	¿Tenemos representación de todos los cromosomas humanos en ambos archivos? (1 pts)
+### INPUT
+
+```
+#!/usr/bin/env bash
+
+###### Parte I de la actividad 
+# Empezaremos con las líneas de cada uno de los archivos
+echo ">>> Número de líneas de human_coordinates_1.bed"
+
+wc -l ../data/human_coordinates_1.bed
+
+echo ">>> Número de líneas de human_coordinates_2.bed"
+
+wc -l ../data/human_coordinates_2.bed
+```
+
+### OUTPUT
+
+```
+juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+>>> Número de líneas de human_coordinates_1.bed
+1907 ../data/human_coordinates_1.bed
+>>> Número de líneas de human_coordinates_2.bed
+1909 ../data/human_coordinates_2.bed
+```
+
+* **¿Cuántas columnas presenta cada uno de los archivos descargados? (1 pts)**
+
+### INPUT
+
+```
+#!/usr/bin/env bash
+
+# Seguiremos contando el número de columnas con awk 
+
+echo ">>> Número de columnas de human_coordinates_1.bed"
+
+awk -F'\t' '{print NF}' ../data/human_coordinates_1.bed | sort -nu
+
+echo ">>> Número de columnas de human_coordinates_2.bed"
+
+awk -F'\t' '{print NF}' ../data/human_coordinates_2.bed | sort -nu
+```
+
+OUTPUT
+
+```
+juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+>>> Número de columnas de human_coordinates_1.bed        
+3
+>>> Número de columnas de human_coordinates_2.bed
+3
+```
+
+* **¿Tenemos representación de todos los cromosomas humanos en ambos archivos? (1 pts)**
 
 Al ser réplicas experimentales esperaríamos que ambos archivos fueran idénticos. **Para comprobarlo, primero ordene los dos archivos por el nombre del cromosoma (determinado en la primera columna). Seguidamente, compárelos para mostrar qué regiones son distintas entre ambos. Adjunte una captura de pantalla con los comandos empleados que muestren cuántas y qué regiones son distintas entre ambos archivos (2 pts)**
 
