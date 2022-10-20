@@ -1,4 +1,4 @@
-# Nombre y Apellido: Juan Carlos
+# Nombre y Apellido: Juan Carlos García Estupiñán
 
 ## Actividad 1.- Manipulación y formateo de archivos: Formato BED
 
