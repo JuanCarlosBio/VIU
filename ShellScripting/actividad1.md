@@ -92,12 +92,12 @@ juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ .
 #!/usr/bin/env bash
 
 echo ">>> Cormosomas de human_coordinates_1.bed"
-cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq | sort -k 1.4 -n
 echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
 cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c | wc -l
 
 echo ">>> Cormosomas de human_coordinates_2.bed"
-cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq | sort -k 1.4 -n
 echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
 cut -f1 ../data/human_coordinates_2.bed | sort | uniq -c | wc -l
 ```
@@ -106,51 +106,51 @@ OUTPUT
 ```
 juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
 >>> Cormosomas de human_coordinates_1.bed
-    324 chr1
-     44 chr10
-     85 chr11
-    507 chr12
-     28 chr13
-     47 chr14
-     38 chr15
-     30 chr16
-     42 chr17
-      9 chr18
-    134 chr2
-     25 chr20
-    163 chr21
-     15 chr22
-     89 chr3
-     18 chr4
-     44 chr5
-     96 chr6
-    129 chr7
-     28 chr8
-     12 chr9
+chr1
+chr2
+chr3
+chr4
+chr5
+chr6
+chr7
+chr8
+chr9
+chr10
+chr11
+chr12
+chr13
+chr14
+chr15
+chr16
+chr17
+chr18
+chr20
+chr21
+chr22
 >> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
 21
 >>> Cormosomas de human_coordinates_2.bed
-    324 chr1
-     44 chr10
-     85 chr11
-    507 chr12
-     28 chr13
-     47 chr14
-     38 chr15
-     30 chr16
-     42 chr17
-      9 chr18
-    134 chr2
-     25 chr20
-    163 chr21
-     15 chr22
-     89 chr3
-     18 chr4
-     44 chr5
-     96 chr6
-    129 chr7
-     28 chr8
-     12 chr9
+chr1
+chr2
+chr3
+chr4
+chr5
+chr6
+chr7
+chr8
+chr9
+chr10
+chr11
+chr12
+chr13
+chr14
+chr15
+chr16
+chr17
+chr18
+chr20
+chr21
+chr22
 >> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
 21
 ```
