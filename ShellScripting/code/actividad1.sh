@@ -33,3 +33,6 @@ echo "Siguiente-------------------------------------------------"
 # cat ../data/human_coordinates_1.bed 
 # echo ">>> human_coordinates_2.bed"
 # cat ../data/human_coordinates_2.bed
+
+# Por el momento lo tengo en mi script de R, faltan los cromosomas 19 y 23 en ambos si no me 
+# equivoco.
