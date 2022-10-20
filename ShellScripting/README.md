@@ -48,5 +48,7 @@
     
     * 5.2. Aplicaciones en el ámbito bioinformático
 
+## Notas de interés:
 
+* [Información sobre awk](https://www.tim-dennis.com/data/tech/2016/08/09/using-awk-filter-rows.html)
 

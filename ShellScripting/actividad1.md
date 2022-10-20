@@ -157,6 +157,35 @@ juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ .
 
 Al ser réplicas experimentales esperaríamos que ambos archivos fueran idénticos. **Para comprobarlo, primero ordene los dos archivos por el nombre del cromosoma (determinado en la primera columna). Seguidamente, compárelos para mostrar qué regiones son distintas entre ambos. Adjunte una captura de pantalla con los comandos empleados que muestren cuántas y qué regiones son distintas entre ambos archivos (2 pts)**
 
+### INPUT
+
+```
+#!/usr/bin/env bash
+
+# Ahora vamos a ver si los datos difieren.
+echo ">>> Ordenamos ambos datos y guardamos los resultados en un nuevo archivo"
+sort -k 1.4 -n ../data/human_coordinates_1.bed > ../data/human_coordinates_1_ordered.bed  
+sort -k 1.4 -n ../data/human_coordinates_2.bed > ../data/human_coordinates_2_ordered.bed 
+
+echo ">> En caso de diferencias ¿Cuántas y que regiones son diferentes?"
+diff ../data/human_coordinates_1_ordered.bed ../data/human_coordinates_2_ordered.bed -q ; diff ../data/human_coordinates_1_ordered.bed ../data/human_coordinates_2_ordered.bed 
+```
+
+### OUTPUT
+
+```
+juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+>>> Ordenamos ambos datos y guardamos los resultados en un nuevo archivo
+>> En caso de diferencias ¿Cuántas y que regiones son diferentes?
+Files ../data/human_coordinates_1_ordered.bed and ../data/human_coordinates_2_ordered.bed differ
+232a233
+> chr1  204073115       204127743
+671a673
+> chr6  31164337        31170682
+1654a1657
+> chr17 42313412        42388540
+```
+
 **Una vez identificadas estas regiones, las debe seleccionar y guardarlas en un archivo nuevo. Ojo solo tiene que guardar las tres columnas, cromosoma, coordenada de inicio y coordenada de fin de cada una de las regiones detectadas. Visualice las primeras líneas de este archivo creado. Incluya una captura de pantalla que muestre el código empleado (1 pts)**
 
 Ahora va a transformar el formato de estas coordenadas genómicas almacenadas. Para ello, debe sustituir el primer tabulador por dos puntos y el segundo por un guion; de forma que las coordenadas presenten la siguiente estructura: chr:inicio-fin. Fíjese en el ejemplo:

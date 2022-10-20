@@ -32,8 +32,17 @@ echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormos
 cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c | wc -l
 
 echo ">>> Cormosomas de human_coordinates_2.bed"
-cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c 
 echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
 cut -f1 ../data/human_coordinates_2.bed | sort | uniq -c | wc -l
 
 echo "SIGUIENTE-------------------------------------------------------------------------"
+
+# Ahora vamos a ver si los datos difieren.
+echo ">>> Ordenamos ambos datos y guardamos los resultados en un nuevo archivo"
+sort -k 1.4 -n ../data/human_coordinates_1.bed > ../data/human_coordinates_1_ordered.bed  
+sort -k 1.4 -n ../data/human_coordinates_2.bed > ../data/human_coordinates_2_ordered.bed 
+
+echo ">> En caso de diferencias ¿Cuántas y que regiones son diferentes?"
+diff ../data/human_coordinates_1_ordered.bed ../data/human_coordinates_2_ordered.bed -q ; diff ../data/human_coordinates_1_ordered.bed ../data/human_coordinates_2_ordered.bed 
+
