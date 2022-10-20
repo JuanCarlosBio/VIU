@@ -10,7 +10,7 @@ echo ">>> Número de líneas de human_coordinates_2.bed"
 
 wc -l ../data/human_coordinates_2.bed
 
-echo "Siguiente------------------------------------------------"
+echo "SIGUIENTE------------------------------------------------"
 
 # Seguiremos contando el número de columnas con awk 
 
@@ -22,17 +22,18 @@ echo ">>> Número de columnas de human_coordinates_2.bed"
 
 awk -F'\t' '{print NF}' ../data/human_coordinates_2.bed | sort -nu
 
-echo "Siguiente-------------------------------------------------"
+echo "SIGUIENTE-------------------------------------------------"
 
 # ¿Hay representación de todos los cromosonas humanos en ambos los archivos?. 
-# No sé muy bien a qué se refiere ahora mismo 
-# En un primer vistazo con cat no lo parece, faltan algunos, supongo que habrá alguna
-# manera para verlo de forma más profesional. 
 
-# echo ">>> human_coordinates_1.bed"
-# cat ../data/human_coordinates_1.bed 
-# echo ">>> human_coordinates_2.bed"
-# cat ../data/human_coordinates_2.bed
+echo ">>> Cormosomas de human_coordinates_1.bed"
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c
+echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c | wc -l
 
-# Por el momento lo tengo en mi script de R, faltan los cromosomas 19 y 23 en ambos si no me 
-# equivoco.
+echo ">>> Cormosomas de human_coordinates_2.bed"
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c
+echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
+cut -f1 ../data/human_coordinates_2.bed | sort | uniq -c | wc -l
+
+echo "SIGUIENTE-------------------------------------------------------------------------"

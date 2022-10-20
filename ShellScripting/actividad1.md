@@ -86,6 +86,75 @@ juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ .
 
 * **¿Tenemos representación de todos los cromosomas humanos en ambos archivos? (1 pts)**
 
+### INPUT
+
+```
+#!/usr/bin/env bash
+
+echo ">>> Cormosomas de human_coordinates_1.bed"
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c
+echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c | wc -l
+
+echo ">>> Cormosomas de human_coordinates_2.bed"
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c
+echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
+cut -f1 ../data/human_coordinates_2.bed | sort | uniq -c | wc -l
+```
+
+OUTPUT
+```
+juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+>>> Cormosomas de human_coordinates_1.bed
+    324 chr1
+     44 chr10
+     85 chr11
+    507 chr12
+     28 chr13
+     47 chr14
+     38 chr15
+     30 chr16
+     42 chr17
+      9 chr18
+    134 chr2
+     25 chr20
+    163 chr21
+     15 chr22
+     89 chr3
+     18 chr4
+     44 chr5
+     96 chr6
+    129 chr7
+     28 chr8
+     12 chr9
+>> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
+21
+>>> Cormosomas de human_coordinates_2.bed
+    324 chr1
+     44 chr10
+     85 chr11
+    507 chr12
+     28 chr13
+     47 chr14
+     38 chr15
+     30 chr16
+     42 chr17
+      9 chr18
+    134 chr2
+     25 chr20
+    163 chr21
+     15 chr22
+     89 chr3
+     18 chr4
+     44 chr5
+     96 chr6
+    129 chr7
+     28 chr8
+     12 chr9
+>> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
+21
+```
+
 Al ser réplicas experimentales esperaríamos que ambos archivos fueran idénticos. **Para comprobarlo, primero ordene los dos archivos por el nombre del cromosoma (determinado en la primera columna). Seguidamente, compárelos para mostrar qué regiones son distintas entre ambos. Adjunte una captura de pantalla con los comandos empleados que muestren cuántas y qué regiones son distintas entre ambos archivos (2 pts)**
 
 **Una vez identificadas estas regiones, las debe seleccionar y guardarlas en un archivo nuevo. Ojo solo tiene que guardar las tres columnas, cromosoma, coordenada de inicio y coordenada de fin de cada una de las regiones detectadas. Visualice las primeras líneas de este archivo creado. Incluya una captura de pantalla que muestre el código empleado (1 pts)**
