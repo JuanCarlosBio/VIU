@@ -27,12 +27,12 @@ echo "SIGUIENTE-------------------------------------------------"
 # ¿Hay representación de todos los cromosonas humanos en ambos los archivos?. 
 
 echo ">>> Cormosomas de human_coordinates_1.bed"
-cut -f1 ../data/human_coordinates_1.bed | sort | uniq
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq | sort -k 1.4 -n
 echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
 cut -f1 ../data/human_coordinates_1.bed | sort | uniq -c | wc -l
 
 echo ">>> Cormosomas de human_coordinates_2.bed"
-cut -f1 ../data/human_coordinates_1.bed | sort | uniq
+cut -f1 ../data/human_coordinates_1.bed | sort | uniq | sort -k 1.4 -n
 echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
 cut -f1 ../data/human_coordinates_2.bed | sort | uniq -c | wc -l
 
