@@ -25,7 +25,7 @@ Los datos con los cuales va a trabajar hacen referencia a una serie de regiones 
 Entorno de rabajo (pipeline)
 
 ```
-juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU$ tree
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo VIU]$ tree
 .
 ├── LICENSE
 ├── README.md
@@ -76,7 +76,7 @@ wc -l ../data/human_coordinates_2.bed
 ### OUTPUT
 
 ```
-juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
 >>> Número de líneas de human_coordinates_1.bed
 1907 ../data/human_coordinates_1.bed
 >>> Número de líneas de human_coordinates_2.bed
@@ -104,8 +104,8 @@ awk -F'\t' '{print NF}' ../data/human_coordinates_2.bed | uniq
 OUTPUT
 
 ```
-juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU/ShellScripting/code$ ./actividad1.sh 
->>> Número de columnas de human_coordinates_1.bed        
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
+>>> Número de columnas de human_coordinates_1.bed 
 3
 >>> Número de columnas de human_coordinates_2.bed
 3
@@ -119,7 +119,7 @@ juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU/ShellScripting/code$ ./activi
 #!/usr/bin/env bash
 
 echo ">>> Cormosomas de human_coordinates_1.bed"
-cut -f1 ../data/human_coordinates_1.bed | uniq | sort -k1.4 -n  
+cut -f1 ../data/human_coordinates_1.bed | uniq | sort -k1.4 -n 
 echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
 cut -f1 ../data/human_coordinates_1.bed | sort | uniq | wc -l
 
@@ -131,7 +131,7 @@ cut -f1 ../data/human_coordinates_2.bed | sort | uniq | wc -l
 
 OUTPUT
 ```
-juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU/ShellScripting/code$ ./actividad1.sh 
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
 >>> Cormosomas de human_coordinates_1.bed
 chr1
 chr2
@@ -191,7 +191,7 @@ Al ser réplicas experimentales esperaríamos que ambos archivos fueran idéntic
 
 # Ahora vamos a ver si los datos difieren.
 echo ">>> Ordenamos ambos datos y guardamos los resultados en un nuevo archivo"
-sort -k 1.4 -n ../data/human_coordinates_1.bed > ../data/human_coordinates_1_ordered.bed  
+sort -k 1.4 -n ../data/human_coordinates_1.bed > ../data/human_coordinates_1_ordered.bed 
 sort -k 1.4 -n ../data/human_coordinates_2.bed > ../data/human_coordinates_2_ordered.bed 
 
 echo ">> En caso de diferencias ¿Cuántas y que regiones son diferentes?"
@@ -201,7 +201,7 @@ diff ../data/human_coordinates_1_ordered.bed ../data/human_coordinates_2_ordered
 ### OUTPUT
 
 ```
-juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU/ShellScripting/code$ ./actividad1.sh 
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
 >>> Ordenamos ambos datos y guardamos los resultados en un nuevo archivo
 >> En caso de diferencias ¿Cuántas y que regiones son diferentes?
 Files ../data/human_coordinates_1_ordered.bed and ../data/human_coordinates_2_ordered.bed differ
