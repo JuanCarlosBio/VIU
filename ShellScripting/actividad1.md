@@ -22,6 +22,33 @@ Los datos con los cuales va a trabajar hacen referencia a una serie de regiones 
 
 * Actividades/Portafolio de pruebas aplicativas/Prueba aplicativa 1/human_coordinates_2.bed
 
+Entorno de rabajo (pipeline)
+
+```
+juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU$ tree
+.
+├── LICENSE
+├── README.md
+└── ShellScripting
+    ├── actividad1.md
+    ├── actividad1.pdf
+    ├── code
+    │   ├── actividad1.sh
+    │   └── script1.R
+    ├── data
+    │   ├── human_coordinates_1.bed
+    │   ├── human_coordinates_1_ordered.bed
+    │   ├── human_coordinates_2.bed
+    │   └── human_coordinates_2_ordered.bed
+    ├── graficas_imagenes
+    │   └── captura_actividad1.png
+    ├── README.md
+    └── sesiones
+        └── sesion2
+            └── sesion2.sh
+
+6 directories, 13 files
+```
 **Acceda a la ruta anterior y descárguese los datos en su entorno de trabajo. Visualice las 5 primeras líneas de cada uno de los archivos. Incluya el código empleado para realizarlo junto a una captura de pantalla (0,5 pts)**
 
 ###### Seguidamente, responda a cada una de las preguntas que se le indican, adicionando siempre una captura de pantalla con los comandos empleados y la respuesta obtenida por la salida estándar.
@@ -77,7 +104,7 @@ awk -F'\t' '{print NF}' ../data/human_coordinates_2.bed | uniq
 OUTPUT
 
 ```
-juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU/ShellScripting/code$ ./actividad1.sh 
 >>> Número de columnas de human_coordinates_1.bed        
 3
 >>> Número de columnas de human_coordinates_2.bed
@@ -104,7 +131,7 @@ cut -f1 ../data/human_coordinates_2.bed | sort | uniq | wc -l
 
 OUTPUT
 ```
-juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU/ShellScripting/code$ ./actividad1.sh 
 >>> Cormosomas de human_coordinates_1.bed
 chr1
 chr2
@@ -174,7 +201,7 @@ diff ../data/human_coordinates_1_ordered.bed ../data/human_coordinates_2_ordered
 ### OUTPUT
 
 ```
-juancarlos@LAPTOP-GA0CC694:/mnt/c/Users/jcge9/Desktop/VIU/ShellScripting/code$ ./actividad1.sh 
+juancarlos@juancarlos-TW8-SW8-DW8:~/Escritorio/VIU/ShellScripting/code$ ./actividad1.sh 
 >>> Ordenamos ambos datos y guardamos los resultados en un nuevo archivo
 >> En caso de diferencias ¿Cuántas y que regiones son diferentes?
 Files ../data/human_coordinates_1_ordered.bed and ../data/human_coordinates_2_ordered.bed differ
