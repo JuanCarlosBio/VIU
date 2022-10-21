@@ -1,12 +1,12 @@
-# Nombre y Apellido: Juan Carlos García Estupiñán
+# <span style = 'color: darkorange'>**Nombre y Apellido: Juan Carlos García Estupiñán**</span>
 
-## Actividad 1.- Manipulación y formateo de archivos: Formato BED
+## <span style = 'color: darkorange'>Actividad 1.- Manipulación y formateo de archivos: Formato BED</span>
 
-### **Objetivo:**
+### <span style = 'color: darkorange'>**Objetivo:**</span>
 
 El objetivo de esta actividad es que el estudiante aprenda a manipular y formatear archivos empleando diferentes comandos de Linux aprendidos a lo largo de las sesiones. Específicamente, se trabajará con el formato BED (Browser Extensible Data) que se utiliza ampliamente en bioinformática para almacenar regiones genómicas como coordenadas y anotaciones asociadas. Este formato se caracteriza por presentar los datos en forma de columnas separadas por espacios o tabuladores. 
 
-### **Detalles sobre la entrega** 
+### <span style = 'color: darkorange'>**Detalles sobre la entrega**</span>
 
 * La entrega se realizará utilizando este documento como plantilla; adicionando el código y las capturas de pantalla asociados en los espacios determinados a ese uso (puede incrementar o reducir el tamaño de los mismos). Recordar que las actividades a realizar están resaltadas en negrita.
 
@@ -14,7 +14,7 @@ El objetivo de esta actividad es que el estudiante aprenda a manipular y formate
 
 * La entrega se realizará a través del Campus VIU en un archivo único en formato PDF.
 
-### **Parte I: Obtención de los datos.**
+### <span style = 'color: darkorange'>**Parte I: Obtención de los datos.**</span>
 
 Los datos con los cuales va a trabajar hacen referencia a una serie de regiones de interés detectadas en un tipo de células inmunitarias, las células B, en humanos. Para ello, se han realizado dos réplicas del experimento, obteniendo dos archivos llamados human_coordinates_1.bed y human_coordinates_2.bed. Estos dos archivos están disponibles en la propia actividad propuesta en el campus virtual:
 
