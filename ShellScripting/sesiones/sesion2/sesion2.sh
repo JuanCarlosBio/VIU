@@ -3,9 +3,10 @@
 #!/usr/bin/env bash
 
 # Este comando lo usaríamos una vez para obtener el segundo script
-#firefox https://www.ncbi.nlm.nih.gov/genome/guide/human/ 
+# firefox https://www.ncbi.nlm.nih.gov/genome/guide/human/ 
 
-#wget -P human_genoma_gh38 https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.fna.gz
+# Descargamos el genoma humano más actualizado, ya está hecho, y se encuentra en el OneDrive
+# wget -P human_genoma_gh38 https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.fna.gz
 
 # Las N significan nucleótidos desconocidos.
 # head GRCh38_latest_genomic.fna 
@@ -22,4 +23,4 @@
 # tree
 
 # Nivel 1 de tree (L), si ponemos 2 nos daría el directorio padre y los subdirectorios, si ponemos con la condición la / nos da los directorios desde root, C es para que nos lo devuelva en colores, p nos da los permisos
-tree -L 1 / -C -p
+# tree -L 1 / -C -p
