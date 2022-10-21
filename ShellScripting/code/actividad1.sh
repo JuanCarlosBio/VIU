@@ -16,11 +16,11 @@ echo "SIGUIENTE------------------------------------------------"
 
 echo ">>> Número de columnas de human_coordinates_1.bed"
 
-awk -F'\t' '{print NF}' ../data/human_coordinates_1.bed | sort -nu
+awk -F'\t' '{print NF}' ../data/human_coordinates_1.bed | uniq
 
 echo ">>> Número de columnas de human_coordinates_2.bed"
 
-awk -F'\t' '{print NF}' ../data/human_coordinates_2.bed | sort -nu
+awk -F'\t' '{print NF}' ../data/human_coordinates_2.bed | uniq
 
 echo "SIGUIENTE-------------------------------------------------"
 
