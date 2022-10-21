@@ -87,6 +87,7 @@ chr3    62796034        62796233
 chr3    62796234        62796433
 chr3    62796434        62796633
 chr3    62815834        62816033
+FIN DE ESTA PARTE-------------------------------------------------------
 ```
 
 <p align='justify'>Seguidamente, responda a cada una de las preguntas que se le indican, adicionando siempre una captura de pantalla con los comandos empleados y la respuesta obtenida por la salida estándar.</p> 
@@ -118,6 +119,7 @@ OUTPUT
 1907 ../data/raw/human_coordinates_1.bed
 >>> Número de líneas de human_coordinates_2.bed
 1909 ../data/raw/human_coordinates_2.bed
+FIN DE ESTA PARTE-------------------------------------------------------
 ```
 
 * <p align='justify'><strong>¿Cuántas columnas presenta cada uno de los archivos descargados? (1 pts)</strong></p>
@@ -142,10 +144,11 @@ OUTPUT
 
 ```
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
->>> Número de columnas de human_coordinates_1.bed 
+>>> Número de columnas de human_coordinates_1.bed
 3
 >>> Número de columnas de human_coordinates_2.bed
 3
+FIN DE ESTA PARTE-------------------------------------------------------
 ```
 
 * <p align='justify'><strong>¿Tenemos representación de todos los cromosomas humanos en ambos archivos? (1 pts)</strong></p>
@@ -219,6 +222,7 @@ chr21
 chr22
 >> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
 21
+FIN DE ESTA PARTE-------------------------------------------------------
 ```
 
 <p align='justify'>Al ser réplicas experimentales esperaríamos que ambos archivos fueran idénticos. <strong>Para comprobarlo, primero ordene los dos archivos por el nombre del cromosoma (determinado en la primera columna). Seguidamente, compárelos para mostrar qué regiones son distintas entre ambos. Adjunte una captura de pantalla con los comandos empleados que muestren cuántas y qué regiones son distintas entre ambos archivos (2 pts)</strong></p>
@@ -264,6 +268,7 @@ Files ../data/processed/hc1_ord.bed and ../data/processed/hc2_ord.bed differ
 > chr6  31164337        31170682
 1654a1657
 > chr17 42313412        42388540
+FIN DE ESTA PARTE-------------------------------------------------------
 ```
 
 <p align='justify'><strong>Una vez identificadas estas regiones, las debe seleccionar y guardarlas en un archivo nuevo. Ojo solo tiene que guardar las tres columnas, cromosoma, coordenada de inicio y coordenada de fin de cada una de las regiones detectadas. Visualice las primeras líneas de este archivo creado. Incluya una captura de pantalla que muestre el código empleado (1 pts)</strong></p>
