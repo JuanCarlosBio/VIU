@@ -2,7 +2,7 @@
 
 # IMPORTANTE!!! Antes que nada obtenemos las funciones creadas en 
 # el otro script llamado funciones_act1.sh, nos serán útiles.
-source funciones_act1.sh
+source funciones2.sh
 
 ###### Parte I de la actividad 
 # Empezaremos con un vistazo de las 5 primeras líneas de cada 
@@ -100,8 +100,3 @@ cat ../data/processed/hc_diff_processed2.bed
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 
 # Creamos un archivo con los genes
-
-
-
-
-
