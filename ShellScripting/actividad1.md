@@ -37,21 +37,30 @@ Trabajaré principalmente en Shellscripting de este repositorio
     ├── actividad1.pdf
     ├── code
     │   ├── actividad1.sh
-    │   └── funciones_act1.sh
+    │   ├── funciones_act1.sh
+    │   └── script.sh
     ├── data
     │   ├── processed
+    │   │   ├── coord_genes.bed
     │   │   ├── hc1_ord.bed
-    │   │   └── hc2_ord.bed
+    │   │   ├── hc2_ord.bed
+    │   │   ├── hc_diff.bed
+    │   │   ├── hc_diff_processed.bed
+    │   │   └── hc_diff_processed2.bed
     │   └── raw
     │       ├── human_coordinates_1.bed
     │       └── human_coordinates_2.bed
     ├── graficas_imagenes
-    │   └── captura_actividad1.png
+    │   ├── captura_actividad1.png
+    │   ├── captura_chr1.png
+    │   ├── captura_chr17.png
+    │   ├── captura_chr6.png
+    │   └── captura_coord_genes.png
     └── sesiones
         └── sesion2
             └── sesion2.sh
 
-8 directories, 13 files
+8 directories, 22 files
 ```
 <p align='justify'><strong>Acceda a la ruta anterior y descárguese los datos en su entorno de trabajo. Visualice las 5 primeras líneas de cada uno de los archivos. Incluya el código empleado para realizarlo junto a una captura de pantalla (0,5 pts)</strong></p> 
 
