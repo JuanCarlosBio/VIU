@@ -270,7 +270,9 @@ echo "> ¿Difieren?"
 diff ../data/processed/hc1_ord.bed ../data/processed/hc2_ord.bed -q
 # Lo siguiente ya es ver cuáles presentan en ese caso diferencias
 echo "> ¿Dónde?"
-diff ../data/processed/hc1_ord.bed ../data/processed/hc2_ord.bed 
+diff ../data/processed/hc1_ord.bed ../data/processed/hc2_ord.bed > ../data/processed/hc_diff.bed
+
+cat ../data/processed/hc_diff.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"  
 ```
@@ -295,12 +297,80 @@ FIN DE ESTA PARTE-------------------------------------------------------
 
 <p align='justify'><strong>Una vez identificadas estas regiones, las debe seleccionar y guardarlas en un archivo nuevo. Ojo solo tiene que guardar las tres columnas, cromosoma, coordenada de inicio y coordenada de fin de cada una de las regiones detectadas. Visualice las primeras líneas de este archivo creado. Incluya una captura de pantalla que muestre el código empleado (1 pts)</strong></p>
 
+STDIN
+
+```
+
+# Filtramos los valores que nos interesa
+grep -v a ../data/processed/hc_diff.bed > ../data/processed/hc_diff_processed.bed
+
+#### Eliminamos los valores > que estorban
+
+# Buscar el patrón que se desea elmiminar
+read -p "Patrón 1 a buscar: " patron1 # > chr1 y chr17 -> sólo > chr1 suficiente
+read -p "Patrón 2 a buscar: " patron2 # > chr6
+
+# Reemplazar el patrón 
+read -p "Reemplazo del patrón: " reemplazo1 # chr1 y chr17
+read -p "Reemplazo del patrón: " reemplazo2 # chr6
+
+
+if [[ $patron1 != "" && $reemplazo1 != "" && $patron1 != "" && $reemplazo1 != "" ]]
+then
+sed -i "s/$patron1/$reemplazo1/" ../data/processed/hc_diff_processed.bed 
+sed -i "s/$patron2/$reemplazo2/" ../data/processed/hc_diff_processed.bed
+fi
+
+cat ../data/processed/hc_diff_processed.bed
+
+echo "FIN DE ESTA PARTE-------------------------------------------------------"
+
+```
+
+STDOUT
+
+```
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh
+Patrón 1 a buscar: > chr1
+Patrón 2 a buscar: > chr6
+Reemplazo del patrón: chr1 
+Reemplazo del patrón: chr6
+chr1    204073115       204127743
+chr6    31164337        31170682
+chr17   42313412        42388540
+FIN DE ESTA PARTE-------------------------------------------------------
+```
+
 <p align='justify'>Ahora va a transformar el formato de estas coordenadas genómicas almacenadas. Para ello, debe sustituir el primer tabulador por dos puntos y el segundo por un guion; de forma que las coordenadas presenten la siguiente estructura: chr:inicio-fin. Fíjese en el ejemplo:</p>
 
 * Formato inicial: chr6	20978845	20979044
 * Formato final: chr6:20978845-20979044
 
-<p align='justify'>Una vez que tenga las regiones seleccionadas con el formato correcto, las deberá caracterizar e identificar para conocer qué genes alberga en su interior. Para ello, deberá acceder al siguiente <a href="https://genome.ucsc">navegador genómico alojado por la Universidad de California, Santa Cruz</a>.edu/. Una vez allí, se situará en el menú denominado “<strong>Genomes”</strong> (parte superior derecha) y seleccionará el assembly actual y de referencia del genoma del ser humano denominado Human GRCh38/hg38</p>
+STDIN
+
+```
+# Vamos a unir los datos anteriores. OJO Posimblemente esta
+# línea de código se vea partita en la memoria, pero en el
+# script original es una única, lo que es muy larga
+awk ' {print $1 ":"  $2 "-" $NF } ' ../data/processed/hc_diff_processed.bed > ../data/processed/hc_diff_processed2.bed  
+
+echo ">>> Visualizamos los datos que presentaban diferencias procesados"
+cat ../data/processed/hc_diff_processed2.bed
+
+echo "FIN DE ESTA PARTE-------------------------------------------------------"
+
+```
+
+```
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh
+>>> Visualizamos los datos que presentaban diferencias procesados
+chr1:204073115-204127743
+chr6:31164337-31170682
+chr17:42313412-42388540
+FIN DE ESTA PARTE-------------------------------------------------------
+```
+
+<p align='justify'>Una vez que tenga las regiones seleccionadas con el formato correcto, las deberá caracterizar e identificar para conocer qué genes alberga en su interior. Para ello, deberá acceder al siguiente <a href="https://genome.ucsc.edu">navegador genómico alojado por la Universidad de California, Santa Cruz</a>. Una vez allí, se situará en el menú denominado “<strong>Genomes”</strong> (parte superior derecha) y seleccionará el assembly actual y de referencia del genoma del ser humano denominado Human GRCh38/hg38</p>
 
 <p align='justify'><strong>¿A qué nos referimos cuando hablamos del Human Genome Assembly?. (0,5 pts)</strong></p>
 
@@ -308,8 +378,37 @@ FIN DE ESTA PARTE-------------------------------------------------------
 
 ---
 
+## <p align='center'><span style='color: blue'><strong>Capturas de pantalla de Genome Browser</p></span></strong>
+
 ![Captura Genome Browser](graficas_imagenes/captura_actividad1.png)
 
+![Captura Genome Browser2](graficas_imagenes/captura_chr1.png)
+###### <p align='center'><span style='color: blue'><em>Figura 2. Vista del USC Genome Browser: chr1:204073115-204127743</p></span></em>
+
+![Captura Genome Browser2](graficas_imagenes/captura_chr6.png)
+###### <p align='center'><span style='color: blue'><em>Figura 3. Vista del USC Genome Browser: chr6:31164337-31170682</p></span></em>
+
+![Captura Genome Browser2](graficas_imagenes/captura_chr17.png)
+###### <p align='center'><span style='color: blue'><em>Figura 4. Vista del USC Genome Browser: chr17:42313412-42388540</p></span></em>
 ---
 
 <p align='justify'><strong>Finalmente, cree un archivo final, donde incluya en la primera columna las regiones identificadas previamente con el formato, cromosoma:inicio-fin y una segunda columna con el nombre del gen que ha detectado en cada una de ellas. Visualice las primeras líneas del archivo creado. Incluya una captura de pantalla con el código empleado (1pts).</strong></p>
+
+### **Creamos el archivo en donde guardamos los datos procesados**
+
+```
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ nano ../data/processed/coord_genes.bed
+```
+
+---
+
+![Link_coord_genes](graficas_imagenes/captura_coord_genes.png)
+
+---
+ 
+```
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ cat ../data/processed/coord_genes.bed
+chr1:204073115-204127743    SOX13
+chr6:31164337-31170682  POU5F1
+chr17:42313412-42388540 STAT3
+```

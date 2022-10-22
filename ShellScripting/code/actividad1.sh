@@ -62,6 +62,7 @@ diff ../data/processed/hc1_ord.bed ../data/processed/hc2_ord.bed -q
 # Lo siguiente ya es ver cuáles presentan en ese caso diferencias
 echo "> ¿Dónde?"
 diff ../data/processed/hc1_ord.bed ../data/processed/hc2_ord.bed > ../data/processed/hc_diff.bed
+
 cat ../data/processed/hc_diff.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
@@ -72,7 +73,7 @@ grep -v a ../data/processed/hc_diff.bed > ../data/processed/hc_diff_processed.be
 #### Eliminamos los valores > que estorban
 
 # Buscar el patrón que se desea elmiminar
-read -p "Patrón 1 a buscar: " patron1 # > chr1 y chr17
+read -p "Patrón 1 a buscar: " patron1 # > chr1 y chr17 -> sólo > chr1 suficiente
 read -p "Patrón 2 a buscar: " patron2 # > chr6
 
 # Reemplazar el patrón 
@@ -86,7 +87,21 @@ sed -i "s/$patron1/$reemplazo1/" ../data/processed/hc_diff_processed.bed
 sed -i "s/$patron2/$reemplazo2/" ../data/processed/hc_diff_processed.bed
 fi
 
+cat ../data/processed/hc_diff_processed.bed
+
+echo "FIN DE ESTA PARTE-------------------------------------------------------"
+
 # Vamos a unir los datos anteriores
 awk ' {print $1 ":"  $2 "-" $NF } ' ../data/processed/hc_diff_processed.bed > ../data/processed/hc_diff_processed2.bed  
 
- 
+echo ">>> Visualizamos los datos que presentaban diferencias procesados"
+cat ../data/processed/hc_diff_processed2.bed
+
+echo "FIN DE ESTA PARTE-------------------------------------------------------"
+
+# Creamos un archivo con los genes
+
+
+
+
+
