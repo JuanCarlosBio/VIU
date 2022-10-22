@@ -30,16 +30,18 @@ Trabajaré principalmente en Shellscripting de este repositorio
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo VIU]$ tree
 .
 ├── LICENSE
-├── README.md        
-└── ShellScripting   
-    ├── README.md    
+├── README.md
+└── ShellScripting
+    ├── README.md
     ├── actividad1.md
     ├── actividad1.pdf
     ├── code
     │   ├── actividad1.sh
-    │   └── script2.sh
+    │   └── funciones_act1.sh
     ├── data
     │   ├── processed
+    │   │   ├── hc1_ord.bed
+    │   │   └── hc2_ord.bed
     │   └── raw
     │       ├── human_coordinates_1.bed
     │       └── human_coordinates_2.bed
@@ -49,13 +51,18 @@ Trabajaré principalmente en Shellscripting de este repositorio
         └── sesion2
             └── sesion2.sh
 
-8 directories, 11 files
+8 directories, 13 files
 ```
 <p align='justify'><strong>Acceda a la ruta anterior y descárguese los datos en su entorno de trabajo. Visualice las 5 primeras líneas de cada uno de los archivos. Incluya el código empleado para realizarlo junto a una captura de pantalla (0,5 pts)</strong></p> 
 
-INPUT
+STDIN  
+
 ```
 #!/usr/bin/env bash
+
+# IMPORTANTE!!! Antes que nada obtenemos las funciones creadas en 
+# el otro script llamado funciones_act1.sh, nos serán útiles.
+source funciones_act1.sh
 
 ###### Parte I de la actividad 
 # Empezaremos con un vistazo de las 5 primeras líneas de cada 
@@ -72,7 +79,8 @@ head -n 5 ../data/raw/human_coordinates_2.bed
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 ```
 
-OUTPUT
+STDOUT
+
 ```
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh
 >>> 5 Primeras líneas de human_coordinates_1.bed
@@ -96,7 +104,7 @@ FIN DE ESTA PARTE-------------------------------------------------------
 
 * <p align='justify'><strong>¿Cuántas líneas presenta cada uno de los archivos descargados? (0,5 pts)</strong></p>
 
-### INPUT
+### STDIN
 
 ```
 # Seguimos con las líneas de cada uno de los archivos
@@ -111,7 +119,7 @@ wc -l ../data/raw/human_coordinates_2.bed
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 ```
 
-OUTPUT
+STDOUT
 
 ```
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
@@ -124,23 +132,31 @@ FIN DE ESTA PARTE-------------------------------------------------------
 
 * <p align='justify'><strong>¿Cuántas columnas presenta cada uno de los archivos descargados? (1 pts)</strong></p>
 
-### INPUT
+### STDIN funciones_act1.sh (comando ```**source**``` para interconectar scripts)
 
 ```
-# Seguiremos contando el número de columnas con awk 
+#!/usr/bin/env bash
 
-echo ">>> Número de columnas de human_coordinates_1.bed"
+# Funciones que me han parecido oportunas para tener
 
-awk -F'\t' '{print NF}' ../data/raw/human_coordinates_1.bed | uniq
+# Función para contar el nº de columnas
+function ncol(){
+    echo "Nº de columnas de $1"
+    awk -F'\t' '{print NF}' $2 | uniq
+}
+```
 
-echo ">>> Número de columnas de human_coordinates_2.bed"
+STDIN actividad1.sh
 
-awk -F'\t' '{print NF}' ../data/raw/human_coordinates_2.bed | uniq
+```
+# Nº de columnas de cada archivo
+ncol human_coordinates_1 ../data/raw/human_coordinates_1.bed
+ncol human_coordinates_2 ../data/raw/human_coordinates_2.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 ```
 
-OUTPUT
+STDOUT
 
 ```
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
@@ -153,28 +169,33 @@ FIN DE ESTA PARTE-------------------------------------------------------
 
 * <p align='justify'><strong>¿Tenemos representación de todos los cromosomas humanos en ambos archivos? (1 pts)</strong></p>
 
-### INPUT
+### STDIN funciones_act1.sh (comando ```**source**``` resto del script)
 
 ```
-# ¿Hay representación de todos los cromosonas humanos en ambos los archivos?. 
+# Función para estudiar los los cromosomas 
+function ver_chr(){
+    echo ">>> ¿Están todos los cromosomas en $1?"
+    echo ">> Cormosomas del archivo $1"
+    cut -f1 $2 | sort -k1.4 -n | uniq
+    echo ">> Nº de líneas de $1, si es < a 23, faltan Chr"
+    cut -f1 $2 | sort -k1.4 -n | uniq | wc -l
+}
+```
 
-echo ">>> Cormosomas de human_coordinates_1.bed"
-cut -f1 ../data/raw/human_coordinates_1.bed | sort -k1.4 -n | uniq  
-echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
-cut -f1 ../data/raw/human_coordinates_1.bed | sort -k1.4 -n | uniq | wc -l
+```
+# ¿Hay representación de todos los cromosonas humanos en ambos los archivos?.  
 
-echo ">>> Cormosomas de human_coordinates_2.bed"
-cut -f1 ../data/raw/human_coordinates_2.bed | sort -k1.4 -n | uniq
-echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
-cut -f1 ../data/raw/human_coordinates_2.bed | sort -k1.4 -n | uniq | wc -l
+ver_chr human_coordinates_1 ../data/raw/human_coordinates_1.bed
+ver_chr human_coordinates_2 ../data/raw/human_coordinates_2.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 ```
 
-OUTPUT
+STDOUT
 ```
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
->>> Cormosomas de human_coordinates_1.bed
+>>> Están todos los cromosomas en human_coordinates_1
+>> Cormosomas del archivo
 chr1
 chr2
 chr3
@@ -198,7 +219,8 @@ chr21
 chr22
 >> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
 21
->>> Cormosomas de human_coordinates_2.bed
+>>> Están todos los cromosomas en human_coordinates_2
+>> Cormosomas del archivo
 chr1
 chr2
 chr3
@@ -227,7 +249,7 @@ FIN DE ESTA PARTE-------------------------------------------------------
 
 <p align='justify'>Al ser réplicas experimentales esperaríamos que ambos archivos fueran idénticos. <strong>Para comprobarlo, primero ordene los dos archivos por el nombre del cromosoma (determinado en la primera columna). Seguidamente, compárelos para mostrar qué regiones son distintas entre ambos. Adjunte una captura de pantalla con los comandos empleados que muestren cuántas y qué regiones son distintas entre ambos archivos (2 pts)</strong></p>
 
-### INPUT
+### STDIN
 
 ```
 # Ahora vamos a ver si los datos difieren.
@@ -253,7 +275,7 @@ diff ../data/processed/hc1_ord.bed ../data/processed/hc2_ord.bed
 echo "FIN DE ESTA PARTE-------------------------------------------------------"  
 ```
 
-### OUTPUT
+### STDOUT
 
 ```
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 

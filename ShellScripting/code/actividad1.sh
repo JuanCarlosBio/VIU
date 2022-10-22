@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# IMPORTANTE!!! Antes que nada obtenemos las funciones creadas en 
+# el otro script llamado funciones_act1.sh, nos serán útiles.
+source funciones_act1.sh
+
 ###### Parte I de la actividad 
 # Empezaremos con un vistazo de las 5 primeras líneas de cada 
 # uno de los archivos
@@ -15,6 +19,7 @@ head -n 5 ../data/raw/human_coordinates_2.bed
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 
 # Seguimos con las líneas de cada uno de los archivos
+
 echo ">>> Número de líneas de human_coordinates_1.bed"
 
 wc -l ../data/raw/human_coordinates_1.bed
@@ -25,29 +30,16 @@ wc -l ../data/raw/human_coordinates_2.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 
-# Seguiremos contando el número de columnas con awk 
-
-echo ">>> Número de columnas de human_coordinates_1.bed"
-
-awk -F'\t' '{print NF}' ../data/raw/human_coordinates_1.bed | uniq
-
-echo ">>> Número de columnas de human_coordinates_2.bed"
-
-awk -F'\t' '{print NF}' ../data/raw/human_coordinates_2.bed | uniq
+# Nº de columnas de cada archivo
+ncol human_coordinates_1 ../data/raw/human_coordinates_1.bed
+ncol human_coordinates_2 ../data/raw/human_coordinates_2.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 
-# ¿Hay representación de todos los cromosonas humanos en ambos los archivos?. 
+# ¿Hay representación de todos los cromosonas humanos en ambos los archivos?.  
 
-echo ">>> Cormosomas de human_coordinates_1.bed"
-cut -f1 ../data/raw/human_coordinates_1.bed | sort -k1.4 -n | uniq  
-echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
-cut -f1 ../data/raw/human_coordinates_1.bed | sort -k1.4 -n | uniq | wc -l
-
-echo ">>> Cormosomas de human_coordinates_2.bed"
-cut -f1 ../data/raw/human_coordinates_2.bed | sort -k1.4 -n | uniq
-echo ">> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas"
-cut -f1 ../data/raw/human_coordinates_2.bed | sort -k1.4 -n | uniq | wc -l
+ver_chr human_coordinates_1 ../data/raw/human_coordinates_1.bed
+ver_chr human_coordinates_2 ../data/raw/human_coordinates_2.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 
