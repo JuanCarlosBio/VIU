@@ -397,7 +397,7 @@ FIN DE ESTA PARTE-------------------------------------------------------
 ### **Creamos el archivo en donde guardamos los datos procesados**
 
 ```
-[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ nano ../data/processed/coord_genes.bed
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo processed]$ nano coord_genes.bed 
 ```
 
 ---
@@ -407,8 +407,8 @@ FIN DE ESTA PARTE-------------------------------------------------------
 ---
  
 ```
-[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ cat ../data/processed/coord_genes.bed
-chr1:204073115-204127743    SOX13
+[UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo processed]$ cat coord_genes.bed 
+chr1:204073115-204127743    SOX13 
 chr6:31164337-31170682  POU5F1
 chr17:42313412-42388540 STAT3
 ```
