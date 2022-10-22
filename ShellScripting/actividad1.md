@@ -169,7 +169,7 @@ FIN DE ESTA PARTE-------------------------------------------------------
 
 * <p align='justify'><strong>¿Tenemos representación de todos los cromosomas humanos en ambos archivos? (1 pts)</strong></p>
 
-### STDIN funciones_act1.sh (comando ```**source**``` resto del script)
+### STDIN funciones_act1.sh (comando ***source*** resto del script)
 
 ```
 # Función para estudiar los los cromosomas 
@@ -194,8 +194,8 @@ echo "FIN DE ESTA PARTE-------------------------------------------------------"
 STDOUT
 ```
 [UNIVERSIDADVIU\juan.carlos@a-3uv58hx3etnvo code]$ ./actividad1.sh 
->>> Están todos los cromosomas en human_coordinates_1
->> Cormosomas del archivo
+>>> ¿Están todos los cromosomas en human_coordinates_1?
+>> Cormosomas del archivo human_coordinates_1
 chr1
 chr2
 chr3
@@ -217,10 +217,10 @@ chr18
 chr20
 chr21
 chr22
->> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
+>> Nº de líneas de human_coordinates_1, si es < a 23, faltan Chr
 21
->>> Están todos los cromosomas en human_coordinates_2
->> Cormosomas del archivo
+>>> ¿Están todos los cromosomas en human_coordinates_2?
+>> Cormosomas del archivo human_coordinates_2
 chr1
 chr2
 chr3
@@ -242,7 +242,7 @@ chr18
 chr20
 chr21
 chr22
->> Nº de líneas de lo anterior, si es < a 23, no están todos los cormosomas
+>> Nº de líneas de human_coordinates_2, si es < a 23, faltan Chr
 21
 FIN DE ESTA PARTE-------------------------------------------------------
 ```
