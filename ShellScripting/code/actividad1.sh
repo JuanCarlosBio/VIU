@@ -2,7 +2,7 @@
 
 # IMPORTANTE!!! Antes que nada obtenemos las funciones creadas en 
 # el otro script llamado funciones_act1.sh, nos serán útiles.
-source funciones2.sh
+# source funciones2.sh
 
 ###### Parte I de la actividad 
 # Empezaremos con un vistazo de las 5 primeras líneas de cada 
@@ -30,6 +30,12 @@ wc -l ../data/raw/human_coordinates_2.bed
 
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 
+# Función para contar el nº de columnas
+function ncol(){
+    echo "Nº de columnas de $1"
+    awk -F'\t' '{print NF}' $2 | uniq
+}
+
 # Nº de columnas de cada archivo
 ncol human_coordinates_1 ../data/raw/human_coordinates_1.bed
 ncol human_coordinates_2 ../data/raw/human_coordinates_2.bed
@@ -37,6 +43,14 @@ ncol human_coordinates_2 ../data/raw/human_coordinates_2.bed
 echo "FIN DE ESTA PARTE-------------------------------------------------------"
 
 # ¿Hay representación de todos los cromosonas humanos en ambos los archivos?.  
+
+function ver_chr(){
+    echo ">>> ¿Están todos los cromosomas en $1?"
+    echo ">> Cormosomas del archivo $1"
+    cut -f1 $2 | sort -k1.4 -n | uniq
+    echo ">> Nº de líneas de $1, si es < a 23, faltan Chr"
+    cut -f1 $2 | sort -k1.4 -n | uniq | wc -l
+}
 
 ver_chr human_coordinates_1 ../data/raw/human_coordinates_1.bed
 ver_chr human_coordinates_2 ../data/raw/human_coordinates_2.bed
